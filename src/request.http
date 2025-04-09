@@ -1,0 +1,44 @@
+### Prueba básica de conexión
+GET http://localhost:8080/api/v1/programa-service/programas
+
+### 1. Crear programa académico (Mismo request que el curl exitoso)
+POST http://localhost:8080/api/v1/programa-service/programas
+Content-Type: application/json
+
+{
+  "nombre": "aaaaaa",
+  "descripcion": "Desc",
+  "duracion": 12,
+  "idCoordinador": 1,
+  "idFacultad": 1,
+  "nivelAcademico": "Pregrado",
+  "numeroCreditos": 120,
+  "perfilEgreso": "Perfil"
+}
+
+### 2. Verificar creación (GET por ID)
+GET http://localhost:8080/api/v1/programa-service/programas/1
+
+### PUT CORREGIDO - Actualizar programa (con valores válidos)
+PUT http://localhost:8080/api/v1/programa-service/programas
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nombre": "Ingeniería Software Actualizado",
+  "descripcion": "Descripción modificada",
+  "duracion": 60,
+  "idCoordinador": 1,
+  "idFacultad": 1,
+  "nivelAcademico": "Pregrado",
+  "numeroCreditos": 120,
+  "perfilEgreso": "Nuevo perfil de egreso"
+}
+### 4
+GET http://localhost:8080/api/v1/programa-service/programas/1
+
+### 4. Eliminar (desactivar) el programa
+DELETE http://localhost:8080/api/v1/programa-service/programas?id=1
+
+### 5. Verificar eliminación (debería mostrar activo: false)
+GET http://localhost:8080/api/v1/programa-service/programas/1
