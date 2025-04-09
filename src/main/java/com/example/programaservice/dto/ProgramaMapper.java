@@ -1,33 +1,37 @@
 package com.example.programaservice.dto;
 
 import com.example.programaservice.model.ProgramaAcademico;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProgramaMapper {
-    public static ProgramaResponse toResponse(ProgramaAcademico entity) {
-        return new ProgramaResponse(
-                entity.getId(),
-                entity.getNombre(),
-                entity.isActivo(),
-                entity.getDescripcion(),
-                entity.getDuracion(),
-                entity.getIdCoordinador(),
-                entity.getIdFacultad(),
-                entity.getNivelAcademico(),
-                entity.getNumeroCreditos(),
-                entity.getPerfilEgreso()
-        );
+
+    public ProgramaAcademico toEntity(ProgramaRequest request) {
+        ProgramaAcademico programa = new ProgramaAcademico();
+        programa.setNombre(request.nombre());
+        programa.setDescripcion(request.descripcion());
+        programa.setDuracion(request.duracion());
+        programa.setIdCoordinador(request.idCoordinador());
+        programa.setIdFacultad(request.idFacultad());
+        programa.setNivelAcademico(request.nivelAcademico());
+        programa.setNumeroCreditos(request.numeroCreditos());
+        programa.setPerfilEgreso(request.perfilEgreso());
+        // activo ya tiene valor por defecto
+        return programa;
     }
 
-    public static ProgramaAcademico toEntity(ProgramaRequest request) {
-        ProgramaAcademico entity = new ProgramaAcademico();
-        entity.setNombre(request.nombre());
-        entity.setDescripcion(request.descripcion());
-        entity.setDuracion(request.duracion());
-        entity.setIdCoordinador(request.idCoordinador());
-        entity.setIdFacultad(request.idFacultad());
-        entity.setNivelAcademico(request.nivelAcademico());
-        entity.setNumeroCreditos(request.numeroCreditos());
-        entity.setPerfilEgreso(request.perfilEgreso());
-        return entity;
+    public ProgramaResponse toResponse(ProgramaAcademico programa) {
+        return new ProgramaResponse(
+                programa.getId(),
+                programa.getNombre(),
+                programa.isActivo(),
+                programa.getDescripcion(),
+                programa.getDuracion(),
+                programa.getIdCoordinador(),
+                programa.getIdFacultad(),
+                programa.getNivelAcademico(),
+                programa.getNumeroCreditos(),
+                programa.getPerfilEgreso()
+        );
     }
 }
