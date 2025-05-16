@@ -6,7 +6,7 @@ POST http://localhost:8080/api/v1/programa-service/programas
 Content-Type: application/json
 
 {
-  "nombre": "aaaaaa",
+  "nombre": "prueba",
   "descripcion": "Desc",
   "duracion": 12,
   "idCoordinador": 1,
@@ -17,14 +17,14 @@ Content-Type: application/json
 }
 
 ### 2. Verificar creación (GET por ID)
-GET http://localhost:8080/api/v1/programa-service/programas/1
+GET http://localhost:8080/api/v1/programa-service/programas/3
 
 ### PUT CORREGIDO - Actualizar programa (con valores válidos)
 PUT http://localhost:8080/api/v1/programa-service/programas
 Content-Type: application/json
 
 {
-  "id": 1,
+  "id": 3,
   "nombre": "Ingeniería Software Actualizado",
   "descripcion": "Descripción modificada",
   "duracion": 60,
@@ -35,10 +35,10 @@ Content-Type: application/json
   "perfilEgreso": "Nuevo perfil de egreso"
 }
 ### 4
-GET http://localhost:8080/api/v1/programa-service/programas/1
+GET http://localhost:8080/api/v1/programa-service/programas/3
 
 ### 4. Eliminar (desactivar) el programa
-DELETE http://localhost:8080/api/v1/programa-service/programas?id=1
+DELETE http://localhost:8080/api/v1/programa-service/programas?id=3
 
 ### 5. Verificar eliminación (debería mostrar activo: false)
-GET http://localhost:8080/api/v1/programa-service/programas/1
+GET http://localhost:8080/api/v1/programa-service/programas/3
