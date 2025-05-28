@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Interface que define los métodos que se pueden realizar sobre la entidad Semestre
+ * Interface que define los métodos que se pueden realizar sobre la entidad Programa
  */
 public interface IProgramaService {
     Programa save(Programa programa);

@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Interface que hereda de JpaRepository para realizar las
- * operaciones de CRUD paginacion y ordenamiento sobre la entidad Semestre
+ * operaciones de CRUD paginacion y ordenamiento sobre la entidad Programa
  */
 public interface IProgramaRepository extends JpaRepository<Programa, Long> {
 }
